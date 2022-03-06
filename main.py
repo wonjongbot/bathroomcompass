@@ -1,7 +1,6 @@
 from flask import Flask, render_template, url_for, request, jsonify
 import random as rand
 import string
-import googlemaps
 
 locations = {}
 
