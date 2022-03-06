@@ -1,0 +1,61 @@
+<!doctype html>
+<head>
+	<title>Find A Bathroom!</title>
+	<script src="/static/base.js"></script>
+	<link href="/static/base.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet"> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+</head>
+<html>
+<body>
+	<h1>Find a Bathroom</h1>
+	<!--<p>Location: {{ location }}</p>
+  <p>LAT: {{ lat }}</p>
+  <p>LNG: {{ lng }}</p>-->
+  
+  <p>Click the button to find closest poopy place</p>
+
+  <button onclick="getLocation()">Try   It</button> 
+
+  <p id="lat"></p>
+  <p id="lng"></p>
+
+
+  <script>
+  var x = document.getElementById("lat");
+  var y = document.getElementById("lng");
+
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showLat);
+      navigator.geolocation.getCurrentPosition(showlng);
+      var lat = document.getElementById("lat");
+      var lng = document.getElementById("lng");
+      var position_data = [
+        {"lat": lat},
+        {"lng": lng}
+      ];
+      $.ajax({
+        type: "POST",
+        url: "/positiondata",
+        data: JSON.stringify(server_data),
+        contentType: "application/json",
+        dataType: 'json' 
+      });
+    } else { 
+      x.innerHTML = "Geolocation is not     supported by this browser.";
+    }
+  }
+
+  function showLat(position) {
+    x.innerHTML = "Latitude: " +   position.coords.latitude;
+}
+      function showlng(position) {
+    y.innerHTML = "Longitude: " + position.coords.longitude;
+}
+</script>
+
+	<a href="/">Go back</a>
+</body>
+</html>

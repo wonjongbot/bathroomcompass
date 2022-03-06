@@ -1,0 +1,33 @@
+Functionalities for Bathroom Finder
+
+- Using maps to know user location
+- Using maps to pin bathroom location
+- Allow users to input new bathrooms they find 
+- Ratings of bathrooms (like cleanliness and accessibility)
+- Access a database of already known bathrooms in the area
+- Show whether the bathroom is public or private
+
+
+Roadmap:
+
+Main Idea:
+- Open Link
+- Ask for the user's location
+- Ask the user for the desired radius for bathroom search
+- Get our database of bathroom locations
+- Cross-reference bathroom locations with the user's location and find closest bathrooms in the desired radius
+- When the user selects a location have it pop in some way like google maps where it zooms in and shows the location,
+  an option to press go, and shows reviews
+- When the user presses the go to button it gives them the fastest directions to get there.
+- Asks the user for an options survey/review
+
+Secondary Idea (option to add a bathroom):
+- If user wants to add a bathroom there is a button they can press
+- If pressed it asks for the location (address), where the bathroom is (like which building), a picture of the bathroom doors
+  to verify there is a bathroom there
+- Once verified it adds the bathroom location to a database
+
+Third Idea (option to report a bathroom): 
+- If user selects this option it ask for a reason why it was reported
+- The report is looked at by a member of the dev team
+- If the report is deemed true and significant the bathroom is either flagged or removed

@@ -1,0 +1,29 @@
+<!doctype html>
+<head>
+	<title>Flask Tutorial!</title>
+	<script src="/static/base.js"></script>
+	<link href="/static/base.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet"> 
+</head>
+<body>
+	<h1>Review a Bathroom</h1>
+  
+  
+	<form action = "/2" method = "POST">
+    <label for="Location Name">Name of Location:</label>
+    <input type="text" id="fname" name="fname"><br></br>
+    <p> Scale of 1-10</p>
+    <label for="Cleaniness">Cleaniness:</label>
+    <input type="text" id="fclean" name="fclean"><br></br>
+    <label for="Smell">Smell:</label>
+    <input type="text" id="fsmell" name="fsmell"><br></br>
+    <label for="Accesiblity">Acessibilty:</label>
+    <input type="text" id="facess" name="facess"><br></br>
+    <label for="Overall">Overall:</label>
+    <input type="text" id="fover" name="fover"><br></br>
+    <button type = 'submit'>Submit</button>
+  </form>
+
+	<a href="/"><button>Go Back</button></a>
+</body>
+

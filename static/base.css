@@ -1,0 +1,24 @@
+cb { 
+  background-color: #d3b88c ;
+  border: 6px solid #656256;
+  border-radius: 12px;
+  font-family: 'Arial', serif;
+  font-size:3.5em
+  
+}
+
+a {
+	color: white;
+	-webkit-appearance: button;
+	-moz-appearance: button;
+	appearance: button;
+  style = text-align: center;
+}
+
+body {
+	font-family: 'Comic Sans', Comic Sans;
+	background-color: #9EBC9F;
+	color: white;
+  text-align: center;
+}
+
