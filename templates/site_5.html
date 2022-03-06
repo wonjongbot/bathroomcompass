@@ -5,10 +5,28 @@
 	<link href="/static/base.css" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet"> 
 </head>
+<html>
 <body>
   <h1> Showing Locations </h1>
 
-  <p>All of the Locations: {{locations}}</p>
+  <p>All of the Locations: {{locations}} </p>
+  <table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for key, value in locations.items() %}
+   <tr>
+       <td class="col-md-2"> {{ key }} </td>
+       <td class="col-md-2"> {{ value }} </td>
+   </tr>
+  {% endfor %}
+  </tbody>
+</table>
 
   <a href="/"><button>Go Back</button></a>
 </body>
+</html>

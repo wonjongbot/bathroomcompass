@@ -3,13 +3,15 @@ import random as rand
 import string
 import googlemaps
 
+locations = {}
+
 app = Flask(  # Create a flask app
 	__name__,
 	template_folder='templates',  # Name of html file folder
 	static_folder='static'  # Name of directory for static files
   
 )
-locations = {}
+
 
 @app.route('/')  # What happens when the user visits the site
 def base_page():
@@ -21,13 +23,13 @@ def base_page():
 	)
 
 
-def add_location(locations, bathroom_name, r_clean, r_smell, r_acess):
+def add_location(locations,bathroom_name, r_clean, r_smell, r_acess):
   # extends locations list
   if not(bathroom_name in locations) :
     
-    locations[bathroom_name] = [r_clean,   r_smell, r_acess, 0]
+    locations[bathroom_name] = [r_clean, r_smell, r_acess, 0]
 
-def edit_location(locations, bathroom_name, r_clean, r_smell, r_acess) :
+def edit_location(locations,bathroom_name, r_clean, r_smell, r_acess) :
   if bathroom_name in locations :
     count = locations[bathroom_name][3] + 1
     locations[bathroom_name][3] = count
@@ -50,7 +52,7 @@ def page_report():
     r_acess = request.form['facess']
     r_over = request.form['fover']
     print(bathroom_name)
-    edit_location(locations, bathroom_name, r_clean, r_smell, r_acess)
+    edit_location(locations,bathroom_name, r_clean, r_smell, r_acess)
   return render_template('site_2.html')
   
 @app.route('/3', methods=['GET', 'POST'])
@@ -73,16 +75,19 @@ def page_new() :
     r_clean = request.form['fclean']
     r_smell = request.form['fsmell']
     r_acess = request.form['facess']
-    add_location(locations, bathroom_name, r_clean, r_smell, r_acess)
+    add_location(locations,bathroom_name, r_clean, r_smell, r_acess)
     print(locations[bathroom_name])
   return render_template('site_4.html')
 
 @app.route('/debugging')
 def page_debug() :
+  
   return render_template('site_5.html', locations = locations)
+  #Might have to make locations into two lists and iterate through both lists instead on site_5
   
 if __name__ == "__main__":  # Makes sure this is the main process
-	app.run( # Starts the site
+  
+  app.run( # Starts the site
     
 		host='0.0.0.0',  # EStablishes the host, required for repl to detect the site
 		port=rand.randint(2000, 9000)  # Randomly select the port the machine hosts on.  
