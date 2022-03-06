@@ -6,26 +6,24 @@
 </head>
 <body>
 	<h1>Found a New Bathroom</h1>
-  <form>
-  <label for="Location Name">Name of Location:</label><br>
-  <input type="text" id="fname" name="fname"><br>
+  <form action = "/4" method = "POST">
+  <label for="Location Name">Name of Location:</label>
+  <input type="text" id="fname" name="fname">
 </form>
-<p>Is the Bathroom Public or Private?</p>
+<p>Rate 1-10</p>
 
-<form>
-  <input type="radio" id="Pub" name="bathroom" value="Pub">
-  <label for="Pub">Public</label><br>
-  <input type="radio" id="Priv" name="bathroom" value="Priv">
-  <label for="Priv">Private</label><br>
-</form>
-  
-<p>Is the Bathroom Gender Neutral Friendly?</p>
-  <form>
-  <input type="radio" id="yes" name="GN" value="yes">
-  <label for="yes">Yes</label><br>
-  <input type="radio" id="No" name="GN" value="No">
-  <label for="No">No</label><br>
-</form>
+<form action = "/4" method = "POST">
+  <label for="Cleaniness">Cleaniness:  </label>
+    <input type="text" id="fclean" name="fclean">
+  </form>
+  <form action = "/4" method = "POST">
+    <label for="Smell">Smell:</label>
+    <input type="text" id="fsmell" name="fsmell">
+  </form>
+  <form action = "/4" method = "POST">
+    <label for="Accesiblity">Acessibilty:</label>
+    <input type="text" id="facess" name="facess">
+  </form>
 
 
 <a href="/"><button>Submit</button></a>

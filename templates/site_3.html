@@ -1,11 +1,11 @@
 <!doctype html>
 <head>
 	<title>Find A Bathroom!</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+  </script>
 	<script src="/static/base.js"></script>
 	<link href="/static/base.css" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet"> 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-</script>
 </head>
 <html>
 <body>
@@ -15,8 +15,8 @@
   <p>LNG: {{ lng }}</p>-->
   
   <p>Click the button to find closest poopy place</p>
+    <button onclick="getLocation()" >Try   It</button> 
 
-  <button onclick="getLocation()">Try   It</button> 
 
   <p id="lat"></p>
   <p id="lng"></p>
@@ -30,29 +30,34 @@
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showLat);
       navigator.geolocation.getCurrentPosition(showlng);
-      var lat = document.getElementById("lat");
-      var lng = document.getElementById("lng");
-      var position_data = [
-        {"lat": lat},
-        {"lng": lng}
-      ];
-      $.ajax({
-        type: "POST",
-        url: "/positiondata",
-        data: JSON.stringify(server_data),
-        contentType: "application/json",
-        dataType: 'json' 
-      });
     } else { 
       x.innerHTML = "Geolocation is not     supported by this browser.";
     }
   }
+
 
   function showLat(position) {
     x.innerHTML = "Latitude: " +   position.coords.latitude;
 }
       function showlng(position) {
     y.innerHTML = "Longitude: " + position.coords.longitude;
+    var lat = document.getElementById("lat");
+    var lng = document.getElementById("lng");
+    var position_data = [
+      {"lat": position.coords.latitude},
+      {"lng": position.coords.longitude}
+    ];
+    $.ajax({
+      type: "POST",
+      url: "/position_data",
+      data: JSON.stringify(position_data),
+      contentType: "application/json",
+      dataType: 'json',
+      success: function(result) {
+      console.log("Result:");
+      console.log(result);
+  } 
+    });
 }
 </script>
 
